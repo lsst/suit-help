@@ -60,10 +60,10 @@ src="img/pixelreadout.png"><p>
 You can change the units of what is being read out, in terms of
 coordinates or pixel values.   <br>
 
-<table><tr><td><img src="img/changecoord.png"  style="border:3px solid gray"></td><td> If you click
-on the label of the coordinates, "EQ-J2000" in the screenshot example
-above, you get this pop-up, from which you can choose the coordinates
-from among:
+<table><tr><td><img src="img/changecoord.png"  style="border:3px solid
+gray"></td><td> If you click on the label of the coordinates,
+"EQ-J2000" in the screenshot example above, you get this pop-up, from
+which you can choose the coordinates from among:
 <UL>
 <LI>Equatorial (RA/Dec) J2000 in hh:mm:ss ddd:mm:ss format
 <LI>Equatorial (RA/Dec) J2000 in decimal degrees
@@ -73,14 +73,23 @@ from among:
 <LI>Ecliptic B1950
 <LI>FITS Image Pixel
 <LI>Zero-based Image Pixel
-</UL></td></tr>
+</UL>
+If you click on the "click lock" toggle, the coordinates stop
+dynamically updating when you move your mouse, and they update only
+when you click on the image. When you do that, little clip boards
+appear next to each coordinate readout; clicking on those copy the
+position to your clipboard. From this pop-up window here as shown, you
+can control the format of the coordinates that are copied to your
+clipboard -- they can be as shown in the readout, or in the format
+that Python is expecting (for easy pasting into code). 
+</td></tr>
 </table>
 
 <table><tr><td><img src="img/changevalue.png" style="border:3px solid
 gray"></td><td> If you have a FITS image loaded, you have an
-additional readout. Click on the label of the readout, "Value" in the
-screenshot example above, you get this pop-up, from which you can
-choose the pixel readout from among:
+additional readout. Click on the label of the readout, "Flux" in the
+tiny snippet of a screenshot example above, and you get this pop-up,
+from which you can choose the pixel readout from among:
 <UL>
 <LI>Integer data readout in decimal 
 <LI>Integer data readout in hexadecimal
@@ -117,11 +126,11 @@ name of the field: "Pixel Size", "EQ-J2000", "Image Pixel", and
 
 
 You can make the cursor 'stick' on a particular place on the image --
-tick the "Lock by click" box (either in the pop-up or in the lower
-right of the image window), and then click on the image at your
-desired location. When this is clicked, small "clipboards" appear near
-the position readout. Click on that icon to copy that position to your
-clipboard.<br> <img src="img/lockposition.png"><P>
+flip the "Click Lock: off" switch to "on" (either in the pop-up or in
+the lower right of the image window), and then click on the image at
+your desired location. When this is clicked, small "clipboards" appear
+near the position readout. Click on that icon to copy that position to
+your clipboard.<br> <img src="img/lockposition.png"><P>
 
 &nbsp;<P>
 
@@ -236,14 +245,15 @@ above on <a href="#breakingout">Breaking out of the pane</A>). <P>
 
 <dt><strong>Image List</strong><P>
 
-<DD>Depending on what you have loaded, you may have an additional icon:
-<img src="img/imagelist.png"><BR> Clicking on this icon brings up a
-list of the images you have loaded, with some additional information
-on each one. This list is a <a href="tables.html">table like any
-other</A> in this tool. You can sort this table, and the images are
-sorted in response.  You can remove selected rows, or delete the
-failed images with one click; click on the corresponding button on the
-lower right of this window.<P>
+<dd>Depending on what you have loaded, you may have an additional
+icon: <img src="img/imagelist.png"><BR> Clicking on this icon brings
+up a list of the images you have loaded, with some additional
+information on each one. This list is a <a href="tables.html">table
+like any other</A> in this tool. There are two important things about
+it, though, that apply to this special case. (1) You can sort this
+table, and the images are sorted in response.  (2) You can remove
+selected rows, or delete the failed images, with one click; click on
+the corresponding button on the lower right of this window.<P>
 
 The power of this table is best demonstrated by an example. <P>
 
@@ -251,7 +261,7 @@ Example: Load the tool. Search on M101, with the default image size.
 Select all bands from the following data sets: SEIP, DUSTiNGS, LVL,
 MIPS_LG. Search. When the tool comes back, click on the image list
 icon above and obtain this pop-up:<br> <img
-src="img/imagelisttable.png" width="100%" style="border:3px solid gray"><br> This
+src="img/imagelisttable.png" width="80%" style="border:3px solid gray"><br> This
 table shows that it found images of M101 from SEIP, and some LVL
 bands, but nothing in DUSTiNGS or MIPS_LG. You can use the table to
 omit the failed images all at once. You can click on "Delete Failed"
@@ -388,11 +398,12 @@ src="img/savecropped.png" style="border:3px solid gray"> <P>
 Note that if you <a href="catalogs.html">overlay a large catalog</A>
 on an image, then turn around and save a regions file from the 
 catalog overlay, the full catalog may not be saved to the regions
-file.  If you have &gt;5,000 sources, <strong>not every source will be
-overlaid on the image</strong>, even if you zoom in, and thus will not
-be in the regions file. If you want to save your entire catalog as a
-regions file, save the catalog from the <a href="tables.html">table
-pane</A>.<P>
+file.  If you have &gt;5,000 sources, it's entirely likely that not
+every source will be overlaid on the image (because of <a
+href="catalogs.html#hier">hierarchical catalogs display</A>), and thus
+will not be in the regions file. If you want to save your entire
+catalog as a regions file, <strong>save the catalog from the <a
+href="tables.html">table pane</A></strong>.<P>
 
 The saved PNG is the same size as it is on your screen. If you want a
 big version, make the desired image big on your screen (view
@@ -452,8 +463,7 @@ always!) already oriented such that North is up, or close to it.
 However, when interactively investigating images, or loading images
 from other sources, you could find yourself in a situation where North
 is not necessarily up. Clicking this icon will orient the selected
-image so that North is up. (This option is only available for FITS,
-not HiPS, images.) <P>
+image so that North is up.  <P>
 
 <dt><img src="img/flip.png"> <em>Flipping the image on the y-axis</em>  
 <dd>Clicking on this icon flips the image on the y-axis. (This option
@@ -468,11 +478,10 @@ this layer via the layers icon, described below.)<P>
 
 <dt><img src="img/coordinates.png"> <em>Add a coordinate grid</em>
 <dd>  Click on this icon to overlay a coordinate grid on the image.
-(Only available for FITS images, not HiPS, but see information on HiPS
-grid in the <a href="#wcs">WCS section</A>.)
 Click it again to remove it. Customize the units of the grid (to,
 e.g., Galactic coordinates) via the "layers" icon (described
-below).<P>
+below).(Also see information on HiPS grid in the <a href="#wcs">WCS
+section</A>.) <P>
 
 <a name="distancetool">
 <dt><img src="img/ruler.png"> <em>Measuring a distance</em></A>
@@ -630,14 +639,14 @@ images.)  When you click the button, a drop-down menu appears.
 <table><tr><td width="20%"><img src="img/colortableoptions.png" style="border:3px solid
 gray"></td><td>
 <UL>
-<LI>The top of the menu says "Lock color and overlays" -- by default,
-all of the (FITS) images that you have loaded are locked together for
-color and overlays. What that means is if you change the color table
-(via this menu), then the color table for all the (FITS) images are
-changed. (Or, if you add a layer to one image, then the layer is added
-to all the images; see below.) If you don't want this to happen, select
-"Lock color and overlays" to unlock it. Select it again to lock it
-again.<P>
+<LI>The top of the menu either says "Color and overlays locked" or
+"Color and overlays unlocked" -- by default, all of the (FITS) images
+that you have loaded are locked together for color and overlays. What
+that means is if you change the color table (via this menu), then the
+color table for all the (FITS) images are changed. (Or, if you add a
+layer to one image, then the layer is added to all the images; see
+below.) If you don't want this to happen, select "Color and overlays
+locked" to unlock it. Select the text again to lock it again.<P>
 
 <LI>The arrow in the upper right creates a pop-up window out of this
 drop-down menu so that you can leave the choices up while settling on
@@ -646,13 +655,28 @@ the best option.<P>
 <LI>The next portion of the menu has a wide variety of color table
 choices. Select your new color table from the options shown.<P>
 
-<LI>Alternatively, you can use the "color bar" slider to move among the
-color tables by number. These numbers correspond to the color bar
-number used in the Python implementation of the Firefly tools. <P>
+<LI>The sort of swirly, hurricane-like icon at the end of each color
+table means "invert this color table." If you click on this icon, it
+will invert the specific color table and then implement it in your
+image(s).<P>
 
-<LI> Below the color bar slider, there are sliders controlling the
-bias and contrast. Click or drag the slider to change the image
-display. <P>
+<LI>Alternatively, you can use the "color bar" slider to move
+among the color tables by number. These numbers correspond to the
+color bar number used in the Python implementation of the Firefly
+tools. <P>
+
+<LI>Pixels that are NaNs in the image are portrayed as the color shown
+by the swatch next to "NaN Pixel Color (Auto)." The tool is finding a
+color that is most different from the colors used in the image(s) as
+currently shown, and using that to render the NaNs in the image. If
+you want to change that, click on the color swatch to bring up a
+pop-up from which you can click on a different color, enter the hex
+code, OR enter the RGB numerical values; the color you pick will
+persist until you pick a different color table:<br> <img
+src="img/nancolorpicker.png" style="border:3px solid gray"><P>
+
+<LI> At the bottom, there are sliders controlling the bias and
+contrast. Click or drag the slider to change the image display. <P>
 </UL>
 </td></tr></table>
 
@@ -681,7 +705,7 @@ tool. Search on M101, and ask for all SEIP channels (4 IRAC, 1 MIPS).
 When it returns, search on catalogs. Select a WISE/AllWISE catalog,
 and ask it for a polygon search covering the image that is loaded.
 When the catalog loads, go up to the image toolbox and be sure to
-select Align and Lock by WCS (see <a href="#wcs">lock image wcs</A>
+select Align and Lock by WCS (see <a href="#wcs">WCS Alignment</A>
 below for more information). Sort the catalog by RA by clicking on the
 top of the RA column. Note that the images are all now slewed to
 center the first object (the furthest east) in the catalog. Click on a
@@ -701,7 +725,7 @@ select from a list.<P>
 <dt><img src="img/selectregion.png"> <em>Selecting a region drop down</em></a>
 <dd>When you click this icon, you can select a region of the image for
 further actions. Because this is complicated, for much more information, 
-please <a href="selectregion">see below</A>.<P>
+please <a href="#selectregion">see below</A>.<P>
 
 
 
@@ -749,7 +773,8 @@ images as already pinned for you. In other cases, you have to actually
 pin them before it will create a pinned images tab.<P>
 
 <dt><img src="img/help.png"> <em>Getting help</em>
-<dd>  Clicking on this icon takes you to this help page.<P>
+<dd>  Clicking on this icon takes you to this help page, usually to a
+spot in the help relevant to whatever you're currently doing.<P>
 
 </dl>
 
@@ -768,16 +793,29 @@ pane view.<P>
 <img src="img/stretch.png"> This icon enables you to change the color
 stretch of the displayed image. (This option is only available for
 FITS, not HiPS, images.) When you click the button, a drop-down menu
-appears with a variety of choices. You can choose from a set of
-pre-selected options:<br><img src="img/stretchoptions.png"
-style="border:3px solid gray"><br> If you pick the first one, "color
-stretch", you can customize the stretch. A pop-up window appears with
-a histogram of the values in the image, and you can change the stretch
-type and range. <br><img src="img/customstretch.png" style="border:3px
-solid gray"> <BR> If you pick a color stretch from the pre-defined
-options, the pop-up window reflects this change. If you change the
-color stretch in the pop-up window, the drop-down menu changes
-correspondingly.<P>
+appears with a variety of choices.<P>
+
+<table><tr><td><img src="img/stretchoptions.png"
+style="border:3px solid gray"></td><td> 
+The top of the menu either says "Color and overlays locked" or "Color
+and overlays unlocked" -- by default, all of the (FITS) images that
+you have loaded are locked together for color and overlays. What that
+means is if you change the color stretch (via this menu), then the
+color stretch for all the (FITS) images are changed. (Or, if you add a
+layer to one image, or change the color table of one image, then the
+change is made to all the images; see other sections of this chapter.)
+If you don't want this to happen, select "Color and overlays locked"
+to unlock it. Select the text again to lock it
+again.</td></tr></table>
+
+Below that, you can choose from a set of pre-selected options. If you
+pick the first one, "color stretch", you can customize the stretch. A
+pop-up window appears with a histogram of the values in the image, and
+you can change the stretch type and range. <br><img
+src="img/customstretch.png" style="border:3px solid gray"> <BR> If you
+pick a color stretch from the pre-defined options, the pop-up window
+reflects this change. If you change the color stretch in the pop-up
+window, the drop-down menu changes correspondingly.<P>
 
 <strong>Example:</strong> Display the pop-up for color stretch. From
 the main drop-down, pick 'Linear stretch to 99%'. Go back to the color
@@ -1048,7 +1086,10 @@ use of locking. You can align FITS and HiPS images to each other. <P>
 <h3><a name="extraction">Extraction Tools</A></h3>
 
 Several tools allow you to extract information from images or image
-planes, but only for FITS (not HiPS) files.
+planes, but only for FITS (not HiPS) files.<strong>All of these
+extraction tools are meant for quick-look assessments, not
+science-ready analyses.</strong> They don't do any pixel
+interpolation, for example.<P>
 
 <UL>
 <LI><img src="img/drill.png" align="center"> -- Extract down through image planes
@@ -1058,13 +1099,13 @@ planes, but only for FITS (not HiPS) files.
 
 All three of these follow the same basic structure -- 
 <OL>
-<LI>Intitiate extraction mode
+<LI>Initiate extraction mode
 <LI>Set aperture  
 <LI>Try extraction; repeat if desired
 <LI>Pin (retain) extraction if desired
 <LI>Download (as table or chart) if desired
-<LI>Repeat if desired
-<LI>Click on "end extraction" to finish the process.
+<LI>Repeat extraction if desired
+<LI>Click on "end extraction" to finish the process
 </OL>
 
 The drill pokes down through multiple planes, the line moves across
@@ -1073,10 +1114,12 @@ pixels in a plane, and the points extracts points from a plane.<P>
 Here, we cover the basic approach, with specifics of each
 tool integrated as we go along.<P>
 
+<strong>Initiate extraction mode.</strong>
 When you click on one of these icons, you enter into the extraction
 mode. Text appears next to the image toolbar to remind you that
 you are in this mode: <img src="img/endextraction.png"> When you are
 done, to end this mode, click on this "end extraction."<P>
+
 
 When starting out, the pop-up window that you get depends on the tool
 you pick.
@@ -1087,10 +1130,20 @@ you pick.
 <td><img src="img/pointsinit.png" width="300" style="border:3px solid gray"></td>
 </table>
 
-In all three cases, the top center of the extract pop-up window has a
-drop-down from which you can select the aperture value. You can choose,
-in pixels, 1x1, 3x3, 5x5, or 7x7. Values can be summed or averaged. <P>
+<strong>Set aperture.</strong> In all three cases, the top center of
+the extract pop-up window has a drop-down from which you can select
+the aperture value. For the drill and points, you can choose, in
+pixels, 1x1, 3x3, 5x5, or 7x7. Values can be summed or averaged. For
+the line, it's a little different. The apertures are 1x1, 1x3, 1x5, or
+1x7, and you control whether the points are summed or averaged. You
+can have it extract along a line that you draw with your mouse on the
+image (useful for examining brightness profiles, e.g., across spiral
+arms of a galaxy), or you can have it extract an entire line or column
+of the image that you specify (useful in the cases where the 'image'
+is a file where the first row is an extracted spectrum, the second row
+is the error, the third row is a mask, etc.).<P>
 
+<strong>Try extraction.</strong>
 From this point, you can click on your image, or click and drag for
 the line tool. The pop-up then contains a plot of your extraction. 
 <table>
@@ -1103,7 +1156,7 @@ the line tool. The pop-up then contains a plot of your extraction.
 In each of these cases, it does the best that it can to label the axes
 accordingly. The cube that is used for the drill example here follows
 the spectral data model so that it is recognized as a spectrum, and it
-plots against wavelength. The line extraction is a 7x7 average and
+plots against wavelength. The line extraction is a 1x3 average and
 plots the offset in arcseconds from the initial mouse click, given the
 WCS information in the header of the image. The point extraction is a
 3x3 sum, and plotted in image x coordinates, but can be changed to
@@ -1111,21 +1164,27 @@ show image y coordinates. <P>
 
 Note that for the line, if you have more than one image loaded and
 visible, you can shift-click on a new image to see the same line on a
-new image. And, for the points, you can shift-click to change images
+new image. Similarly, for the points, you can shift-click to change images
 without extracting points.<P>
 
+For the line extraction, if you want to change at this point to
+extract along a line or column, use the drop-down menu at the bottom
+of the pop-up. It's shown here as "free hand selection", but the other
+choices are line or column selection; you click on the image to select
+a line or a column, which is particularly useful for quick looks at
+semi-extracted spectral images.<P>
+
+
+<strong>Pin extraction.</strong>
 Once you have an extraction that you like, you can retain the
-extraction for further analysis, in any of three ways. "<strong>Pin
-chart/table</strong>" extracts the information as a <a
+extraction for further analysis. "<em>Pin
+chart/table</em>" extracts the information as a <a
 href="tables.html">table</A>, just like any of the other tables in
 this tool, with an accompanying <a href="plots.html">plot</A>. You can
 then manipulate the table/plot just like any other table or plot in
 this tool. If the tool recognizes the extraction as a <a
 href="spectra.html">spectrum</A>, you may have additional
-capabilities. <strong>Download as Table</strong> saves the table to
-your local disk <a href="tables.html#save">with all the same options
-as a regular table</A>. <strong>Download Chart</strong> saves the plot
-as shown, as a png file.<P>
+capabilities. <P>
 
 Once you pin or save your extraction, the tool leaves a "footprint" of
 your extraction on the image so that you can remember what the
@@ -1139,10 +1198,72 @@ rendered as these pixels:<br>
 The point appears on the image at the lower left corner of the
 relevant pixel.<P>
 
-You can pin as many different extractions as you want. Each one will
-result in new tabs with the corresponding table at the bottom of the
-screen. There are navigation aids within the <a
+You can pin as many different extractions as you want. <P>
+
+From the line extraction pop-up, when you click on "Pin Chart/Table",
+you get another pop-up:<br>
+<img src="img/pinextract.png" width="300" style="border:3px solid
+gray"><br>
+From this pop-up, you can choose to do a line extraction from just the
+currently selected image (most likely where you drew your line); all
+the images and putting all of the extracted lines into one big table
+(and tab); or all the images and putting all of the extracted lines
+into individual tables (and tabs). When you do this, the question
+naturally arises as to how the tool should specify which column (or
+tab) goes with which image. Some of the images have long, sometimes
+cryptic titles. You can choose to have the tool use the full image
+titles in the column headers or tab titles, or abbreviations. <P>
+
+If you choose to have the tool generate one table for each image you
+have loaded, you may suddenly have a lot of new tabs at the bottom of
+the screen. There are navigation aids within the <a
 href="tables.html#navigation">tables section</A> that may help.<P>
+
+<strong>Download extraction.</strong> You can download the extraction
+as a table or plot without pinning it. <em>Download as Table</em>
+saves the table to your local disk -- first, you have the same options
+as immediately above, where you can choose to do a line extraction
+from just the currently selected image; all the images and putting all
+of the extracted lines into one big table; or all the images and
+putting all of the extracted lines into individual tables. Then you
+have <a href="tables.html#save">all the same save options as a regular
+table</A>. <em>Download Chart</em> saves the plot as shown, as a png
+file.<P>
+
+After pinning an extraction, you also have the extraction appearing as
+a table in the tables section of your window and as a plot in the
+plots section of your window.  As with <a href="tables.html#save">any
+table</A> in this tool, you can save the table by clicking on the
+diskette icon in the table. You can choose from a variety of formats;
+<a href="tables.html#save">see the tables chapter for more
+information</A>. Similarly, as with <a href="plots.html#saving">any
+plot</A> in this tool, you can save the plot by clicking on the
+diskette icon in the plot. See the <a href="plots.html#saving">plots
+chapter</A> for more information.<P>
+
+
+<strong>Repeat extraction.</strong> As long as the extraction pop-up
+is still open, you can continue to click points or draw lines to make
+additional extractions.<P>
+
+
+<strong>End extraction mode.</strong> <img src="img/endextraction.png">
+When you are done, to end the extraction, click on "end extraction" to
+end the extraction. Alternatively, just click on the 'x' in the upper
+right corner of the extraction pop-up.<P>
+
+<strong>Advanced capabilities</strong> If you have a complicated
+multi-extension FITS file with HDUs that are labeled things like
+image, uncertainty, variance, flags, etc., you have some additional
+options for extraction. When you pin the extraction, you can specify
+an aperture larger than 1x1, which then begs the question of how the
+pixel values are combined. When you have information that the tool
+recognizes, and when you choose a larger aperture, you then get an
+additional pulldown from which you can choose how the pixels are
+combined: average, sum, or even logical "OR", depending on the
+data:<br> <img src="img/extractionadv.png" style="border:3px solid
+gray"><P>
+
 
 
 
@@ -1327,7 +1448,7 @@ seconds, they vanish.<P>
 image, some of these footprints will be larger than your image. Zoom
 out to see it, or find a larger image to use. If you overlay, say, a
 Nancy Grace Roman Space Telescope (formerly WFIRST) footprint on a
-2MASS image, you may need to zoom out a considerable amount before you
+2MASS Atlas FITS image, you may need to zoom out a considerable amount before you
 can see the Roman footprint. You will see the center indicator of the
 marker before you will see the Roman footprint itself. 
 <LI>You can add multiple copies of the same marker using the <a
@@ -1360,7 +1481,7 @@ Spitzer, SOFIA, HST, JWST, and Roman. HST, JWST and Roman are derived
 from information provided via MAST (see <a
 href="http://gsss.stsci.edu/webservices/footprints/help.html"
 target="_blank">http://gsss.stsci.edu/webservices/footprints/help.html
-<img src="img/jumpout.jpg" height="10"></A>.) For JWST and Roman in
+<img src="img/jumpout.jpg" height="10"></A>.) For Roman in
 particular, they are pre-launch values.<P>
 
 <img src="img/iracfoot.png"> <strong>Spitzer/IRAC 3.6 and 4.5 micron
